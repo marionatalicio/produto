@@ -34,15 +34,15 @@
     <tbody>
     <?php foreach ($listaProdutos as $produto): ?>
     <tr>
-        <th scope="row"><?php $produto->id?></th>
-        <td>##mostre o nome</td>
-        <td>##mostre o preco</td>
-        <td>##mostre o estoque</td>
-        <td>##mostre a categoria</td>
-        <td>##editar | remover</td>
+        <th scope="row"><?= $produto->id?></th>
+        <td><?= $produto->nome?></td>
+        <td><?= $produto->preco?></td>
+        <td><?= $produto->estoque?></td>
+        <td><?= $produto->categoria?></td>
+        <td>
+            <a href="editar-produto.php?id=<?= $produto->id ?>">Editar</a> ||
+            <a href="../../models/CrudProdutos.php?acao=excluir%id=<?= $produto->id?>">Excluir</a></td>
     </tr>
-        <a href="editar-produto.php"><?= $produto->id ?>editar</a>
-        <a href="../controllers/contriladorProduto.php"></a>
    <?php endforeach; ?>
 
     </tbody>

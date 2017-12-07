@@ -22,7 +22,7 @@ if ( $_GET['acao'] == 'cadastrar'){
 
 //quando um valor da URL for igual a editar faça isso
 if ( $_GET['acao'] == 'editar'){
-echo "chamou editar";
+    echo "chamou editar";
     $produto = new Produto($_POST['nome'],$_POST['preco'],$_POST['categoria'],$_POST['estoque'],$_POST['id']);
     //crie um objeto $crud
     $crud= new CrudProdutos();
