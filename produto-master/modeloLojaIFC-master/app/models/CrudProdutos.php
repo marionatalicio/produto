@@ -24,6 +24,8 @@ class CrudProdutos {
         $this->conexao->exec($sql);
     }
 
+
+
     public function getProduto(int $codigo){
         $consulta = $this->conexao->query("SELECT * FROM tb_produtos WHERE id = $codigo");
         $produto = $consulta->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE

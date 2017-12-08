@@ -7,9 +7,13 @@
 
     ## !!ADICIONE AQUI O CABECALHO DA PAGINA
     require_once "cabecalho.php";
+
 ?>
 
 <!--Barra de busca-->
+<head>
+    
+</head>
 <div class="row">
     <div class="col-md-12">
         <div class="input-group">

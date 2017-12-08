@@ -5,7 +5,7 @@ require_once "../../models/CrudProdutos.php";
 
 $crud = new CrudProdutos();
 
-$produto =$crud->getProduto($_GET['id']);
+$produto = $crud->getProduto($_GET['id']);
 ?>
 
     <h2>Editar Produtos</h2>
