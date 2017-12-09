@@ -12,7 +12,7 @@ require_once "Produto.php";
 class CrudProdutos {
 
     private $conexao;
-    private $produto;
+    public $produto;
 
     public function __construct() {
         $this->conexao = Conexao::getConexao();
@@ -23,12 +23,18 @@ class CrudProdutos {
 
         $this->conexao->exec($sql);
     }
+    public function editar(Produto $produto){
+        $sql = "UPDATE tb_produtos SET (nome ='$produto->nome',preco = $produto->preco, categoria = '$produto->categoria',quantidade_estoque = $produto->estoque)";
+
+        $this->conexao->exec($sql);
+    }
+
 
     public function getProduto(int $codigo){
         $consulta = $this->conexao->query("SELECT * FROM tb_produtos WHERE id = $codigo");
         $produto = $consulta->fetch(PDO::FETCH_ASSOC); //SEMELHANTES JSON ENCODE E DECODE
 
-        return new Produto($produto['titulo'], $produto['preco'], $produto['categoria']);
+        return new Produto($produto['nome'], $produto['preco'],$produto['estoque'], $produto['categoria'],$produto['id']);
 
     }
 
@@ -39,7 +45,7 @@ class CrudProdutos {
         //Fabrica de Produtos
         $listaProdutos = [];
         foreach ($arrayProdutos as $produto){
-            $listaProdutos[] = new Produto($produto['titulo'], $produto['preco'], $produto['categoria'],$produto['quantidade_estoque'],$produto['id']);
+            $listaProdutos[] = new Produto($produto['nome'], $produto['preco'], $produto['categoria'],$produto['quantidade_estoque'],$produto['id']);
         }
 
         return $listaProdutos;

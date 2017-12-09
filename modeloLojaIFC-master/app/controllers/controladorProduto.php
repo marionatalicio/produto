@@ -22,9 +22,13 @@ if ( $_GET['acao'] == 'cadastrar'){
 
 //quando um valor da URL for igual a editar faça isso
 if ( $_GET['acao'] == 'editar'){
-
-    //algoritmo para editar
-    //redirecione para a página de produtos
+    echo "chamou editar";
+    $produto = new Produto($_POST['nome'],$_POST['preco'],$_POST['categoria'],$_POST['estoque'],$_POST['id']);
+    //crie um objeto $crud
+    $crud= new CrudProdutos();
+    $crud->salvar($produto);
+    header('location: ../views/admin/produtos.php');
+    print_r($_POST);
     header('location: ../views/admin/produtos.php');
 }
 
@@ -35,3 +39,4 @@ if ( $_GET['acao'] == 'excluir'){
     //redirecione para a página de produtos
     header('location: ../views/admin/produtos.php');
 }
+

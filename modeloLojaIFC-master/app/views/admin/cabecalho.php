@@ -15,34 +15,7 @@
     <link href="../../../assets/css/ifc-style.css" rel="stylesheet">
 
     <!-- ## MOVA ESTE CSS PARA O ARQUIVO ifc-styles.css-->
-    <style>
-        .admin-menu {
-            background: #333;
-        }
 
-        ul {
-            margin: 0;
-            padding: 0;
-        }
-        ul li {
-            padding: 0 ;
-            list-style: none;
-
-        }
-
-        ul li a {
-            display: block;
-            padding: 10px 10px;
-
-            color: #b8c7ce;
-            font-size: 12px;
-        }
-        ul li a:hover {
-            text-decoration: none;
-            background: #1d1c1c;
-            color: #b8c7ce;
-        }
-    </style>
 
 </head>
 
@@ -57,7 +30,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">Página inicial</a>
+                    <a class="nav-link" href="../../../index.php">Página inicial</a>
                 </li>
             </ul>
         </div>
@@ -72,9 +45,9 @@
 
         <div class="col-md-2 px-0 admin-menu" style="position: fixed; top: 50px; bottom: 0; ">
             <img src="../../../assets/imagens/avatar.gif" alt="" class="img-fluid rounded-circle" style="padding: 15px;">
-            <ul>
-                <li><a href="editar-produto.php">Produtos</a></li>
-                <li><a href="cadastro-produto.php">Cadastrar Produto</a></li>
+            <ul class="bara">
+                <li class="barau"><a  class="barauna bla" href="produtos.php">Produtos</a></li>
+                <li class="barau"><a class="barauna bla" href="cadastro-produto.php">Cadastrar Produto</a></li>
             </ul>
         </div>
 

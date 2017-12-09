@@ -7,9 +7,13 @@
 
     ## !!ADICIONE AQUI O CABECALHO DA PAGINA
     require_once "cabecalho.php";
+
 ?>
 
 <!--Barra de busca-->
+<head>
+    
+</head>
 <div class="row">
     <div class="col-md-12">
         <div class="input-group">
@@ -34,12 +38,14 @@
     <tbody>
     <?php foreach ($listaProdutos as $produto): ?>
     <tr>
-        <th scope="row"><?php $produto->id?></th>
-        <td>##mostre o nome</td>
-        <td>##mostre o preco</td>
-        <td>##mostre o estoque</td>
-        <td>##mostre a categoria</td>
-        <td>##editar | remover</td>
+        <th scope="row"><?= $produto->id?></th>
+        <td><?= $produto->nome?></td>
+        <td><?= $produto->preco?></td>
+        <td><?= $produto->estoque?></td>
+        <td><?= $produto->categoria?></td>
+        <td>
+            <a href="editar-produto.php?id=<?= $produto->id ?>">Editar</a> ||
+            <a href="../../models/CrudProdutos.php?acao=excluir%id=<?= $produto->id?>">Excluir</a></td>
     </tr>
    <?php endforeach; ?>
 
@@ -47,3 +53,5 @@
 </table>
 
 <!-- ## ADICIONE AQUI O RODAPE DA PAGINA -->
+<?php
+    require_once "rodape.php";

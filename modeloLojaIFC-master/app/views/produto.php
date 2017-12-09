@@ -1,14 +1,20 @@
 <?php
-
-    require_once "models/CrudProdutos.php";
-
+    require_once"admin/cabecalho.php";
+    require_once "../models/CrudProdutos.php";
     $crud = new CrudProdutos();
 
     //seguranca
     $codigo = filter_input(INPUT_GET, 'codigo', FILTER_VALIDATE_INT); //consulte os slides.
 
-    $produto = $this->produto;
-
+    $produto = $codigo;
+    require_once "../models/Produto.php";
+    $listaProdutos = $crud->getProdutos();
+    foreach($listaProdutos as $prod){
+        if ($prod->id == $produto){
+            $listaProduto = $prod;
+        }
+    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +30,7 @@
     <title>Lojão do IFC</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../assets/css/ifc-style.css" rel="stylesheet">
 
 </head>
@@ -67,15 +73,22 @@
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-12">
-                    <h2><?= $produto->titulo; ?></h2>
+                    <h2><?= $produto; ?></h2>
                 </div>
             </div>
+            
             <div class="row">
                 <div class="col-md-12">
-                    <span class="badge badge-primary">mostre a categoria</span>
-                    <span class="badge badge-warning">mostre a disponibilidade</span>
+                    
+                    <span class="badge badge-primary"><?=$listaProduto->categoria?></span>
+                    
+                    
+                    <span class="badge badge-warning"><?=$listaProduto->estaDisponivel();
+                      ?></span>
+                      
                 </div>
             </div>
+
             <!-- end row -->
 
             <div class="row description-wrapper">
@@ -88,7 +101,7 @@
 
             <div class="row">
                 <div class="col-md-12 bottom-rule">
-                    <h2 class="product-price">mostre preco</h2>
+                    <h2 class="product-price"><?=$prod->preco?></h2>
                 </div>
             </div>
             <!-- end row -->
